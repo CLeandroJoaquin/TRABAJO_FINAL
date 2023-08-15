@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title>Historial de Inventario - {{ material.codigo }}</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h3>Historial de Inventario - {{ material.codigo }}</h3>
+<a href="{% url 'lista_material' %}">Volver a la lista de materiales</a>
+<br><br>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Cantidad Anterior</th>
+            <th>Cantidad Nueva</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cambio in historial %}
+        <tr>
+            <td>{{ cambio.fecha }}</td>
+            <td>{{ cambio.cantidad_anterior }}</td>
+            <td>{{ cambio.cantidad_nueva }}</td>
+            <td>{{ cambio.usuario }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+<title>
+{% block titulo %}
+Formulario de alta de PERSONAL
+{% endblock titulo %}
+</title>
+
+{% block contenido %}
+<form method="post">
+ {% csrf_token %}
+ <p>Nombre</p>
+ <input type="text" name="nombre">
+ <p>Legajo</p>
+ <input type="number" name="numero_legajo" step="1">
+ <p>Antiguedad</p>
+ <input type="number" name="antiguedad">
+ <p>Puesto</p>
+ <input type="text" name="puesto">
+
+ <input type="submit" value="Guardar">
+</form>
+{% endblock contenido %}
